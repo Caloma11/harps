@@ -1,34 +1,34 @@
-const scales_intervals = {
+const scalesIntervals = {
 
-  major_scale: [2, 2, 1, 2, 2, 2, 1],
-  natural_minor_scale: [2, 1, 2, 2, 1, 2, 2],
-  minor_pentatonic_scale: [2, 2, 3, 2, 3],
-  blues_scale: [3, 2, 1, 1, 3, 2],
-  harmonic_minor_scale: [2, 1, 2, 2, 1, 3, 2],
-  melodic_minor_scale: [2, 1, 2, 2, 2, 2, 1],
-  ionian_scale: [2, 2, 1, 2, 2, 2, 1],
-  dorian_scale:[2, 1, 2, 2, 2, 1, 2],
-  phrygian_scale: [1, 2, 2, 2, 1, 2, 2],
-  lydian_scale: [2, 2, 2, 1, 2, 2, 1],
-  mixolydian_scale: [2, 2, 1, 2, 2, 1, 2],
-  aeolian_scale: [2, 1, 2, 2, 1, 2, 2],
-  locrian_scale: [1, 2, 2, 1, 2, 2, 2],
-  whole_tone_scale: [2, 2, 2, 2, 2, 2],
-  whole_tone_diminished: [2, 1, 2, 1, 2, 1, 2, 1],
-  whole_half_diminished: [1, 2, 1, 2, 1, 2, 1, 2]
+  majorScale: [2, 2, 1, 2, 2, 2, 1],
+  naturalMinorScale: [2, 1, 2, 2, 1, 2, 2],
+  minorPentatonicScale: [2, 2, 3, 2, 3],
+  bluesScale: [3, 2, 1, 1, 3, 2],
+  harmonicMinorScale: [2, 1, 2, 2, 1, 3, 2],
+  melodicMinorScale: [2, 1, 2, 2, 2, 2, 1],
+  ionianScale: [2, 2, 1, 2, 2, 2, 1],
+  dorianScale:[2, 1, 2, 2, 2, 1, 2],
+  phrygianScale: [1, 2, 2, 2, 1, 2, 2],
+  lydianScale: [2, 2, 2, 1, 2, 2, 1],
+  mixolydianScale: [2, 2, 1, 2, 2, 1, 2],
+  aeolianScale: [2, 1, 2, 2, 1, 2, 2],
+  locrianScale: [1, 2, 2, 1, 2, 2, 2],
+  wholeToneScale: [2, 2, 2, 2, 2, 2],
+  wholeToneDiminished: [2, 1, 2, 1, 2, 1, 2, 1],
+  wholeHalfDiminished: [1, 2, 1, 2, 1, 2, 1, 2]
   }
 
 
-const harp_grid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
+const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
   , ['', '', '', '', '', '', '', 3, 6, 11]
   , [1, 3, 5, 1, 3, 5, 1, 3, 5, 1]
   , [2, 5, 7, 2, 4, 6, 7, 2, 4, 6]
   , [1, 6, 10, 1, '', 8, '', '', '', '']
   , ['', 5, 9, '', '', '', '', '', '', '']
-  , ['', '', 8, '', '', '', '', '', '', '', '']
+  , ['', '', 8, '', '', '', '', '', '', '']
   ]
 
- const chromatic_scale = ['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B']
+ const chromaticScale = ['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B']
 
   // Reorders a given scale so that it starts with a given note
 
@@ -44,9 +44,9 @@ const harp_grid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
   // Returns any scale in any given key, given that key and the intervals, which
   // are available in the   constant
  
- 	function scale_notes(note, intervals) {
+ 	function scaleNotes(note, intervals) {
  		let i = 0
- 		let scale = reorder(chromatic_scale, note)
+ 		let scale = reorder(chromaticScale, note)
  		let notes = [scale[0]]
 
  		intervals.forEach((interval) => {
@@ -67,38 +67,37 @@ const harp_grid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
  	// draw bend row'
 
 
- 	function harmonica_drawer(key) {
- 		let major_scale = scale_notes(key, scales_intervals['major_scale'])
+ 	function harmonicaDrawer(key) {
+ 		let majorScale = scaleNotes(key, scalesIntervals['majorScale'])
 
- 		let key_chromatic_scale = reorder(chromatic_scale, key)
+ 		let keyChromaticScale = reorder(chromaticScale, key)
 
 	 	checkIfNoteMajor = function (interval) {
-		  return (interval == '') ? interval : major_scale[interval - 1];
+		  return (interval == '') ? interval : majorScale[interval - 1];
 		}	
 		checkIfNoteChrom = function (interval) {
-		  return (interval == '') ? interval : key_chromatic_scale[interval];
+		  return (interval == '') ? interval : keyChromaticScale[interval];
 		}
 
- 		let w_bend_blow_intervals = harp_grid[0].map(checkIfNoteChrom)
+ 		let wBendBlowIntervals = harpGrid[0].map(checkIfNoteChrom)
 
- 		let bend_blow_intervals =  harp_grid[1].map(checkIfNoteChrom)	
+ 		let bendBlowIntervals =  harpGrid[1].map(checkIfNoteChrom)	
 
-	  let blow_notes_intervals = harp_grid[2].map(checkIfNoteMajor)	
+	  let blowNotesIntervals = harpGrid[2].map(checkIfNoteMajor)	
 	 	
-	 	let draw_notes_intervals = harp_grid[3].map(checkIfNoteMajor)	
+	 	let drawNotesIntervals = harpGrid[3].map(checkIfNoteMajor)	
 
-	  let bend_draw_intervals =  harp_grid[4].map(checkIfNoteChrom)
+	  let bendDrawIntervals =  harpGrid[4].map(checkIfNoteChrom)
 	  
-	  let w_bend_draw_intervals =  harp_grid[5].map(checkIfNoteChrom)
+	  let wBendDrawIntervals =  harpGrid[5].map(checkIfNoteChrom)
 
-	  let wh_bend_draw_intervals =  harp_grid[6].map(checkIfNoteChrom)
+	  let whBendDrawIntervals =  harpGrid[6].map(checkIfNoteChrom)
 
 		
-	  harmonarray = [w_bend_blow_intervals, bend_blow_intervals, blow_notes_intervals, draw_notes_intervals,
-  	bend_draw_intervals, w_bend_draw_intervals, wh_bend_draw_intervals]
+	  let harmonicaArray = [wBendBlowIntervals, bendBlowIntervals, blowNotesIntervals, drawNotesIntervals,
+  	bendDrawIntervals, wBendDrawIntervals, whBendDrawIntervals]
 
-  	console.log(harmonarray)
-
+    return harmonicaArray
 		}
 
 
@@ -113,17 +112,36 @@ const harp_grid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
 window.onload = init;
 
   function init(){
-  	const selectKey = document.getElementById('key');
-		const fo = document.querySelector('.note')
-		console.log(fo)
 
-		selectKey.addEventListener('change', (event) => {
-			event.preventDefault();
-		  console.log('Pee is stored in the balls')
-		});
+    const selectKey = document.getElementById('key');
+  
+  function fillHarp() {
+    let selectedNote = selectKey.value
+    let dividedNotes = harmonicaDrawer(selectedNote)
+    let notes = [].concat.apply([], dividedNotes);
+    let circles = document.querySelectorAll('.circle-text')
+    let holes =  Array.prototype.slice.call(circles).slice(10)
 
-    // the code to be called when the dom has loaded
-    // #document has its nodes
+    for (i = 0; i < holes.length; i++) {
+
+      if (holes[i].querySelector('p')) {
+        holes[i].querySelector('p').innerText = notes[i]
+      }
+    }
+
+  }
+
+    selectKey.addEventListener('change', (event) => {
+      event.preventDefault();
+      fillHarp();
+    });
   }
 
 })(window, document, undefined);
+
+
+
+
+
+
+
