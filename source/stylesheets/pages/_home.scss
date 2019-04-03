@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+}
+
+html {
+  background-color: #F6F7EB;
+}
+
+.container {
+  height: 100vh;
+}
+
+.circle-text {
+display: inline-block;
+height: 45px;
+width: 45px;
+margin-right: 5px;
+text-align: center;
+border-radius: 50%;
+background: #000;
+color: #fff;
+font: 32px arial;
+}
+
+.number {
+  border-radius: 0;
+  background: transparent;
+  color: #363832;
+}
+
+.reed {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.overblow {
+  background: #DBD56E;
+  border-radius: 20%;
+}
+
+.blow-bend {
+  background: #F06449;
+}
+
+.blow {
+  background: #BA2D0B;
+}
+
+.draw {
+  background: #003049;
+}
+
+.draw-bend {
+  background: #249E8F;
+}
+
+.overdraw {
+  background: #E5DC32;
+  border-radius: 20%;
+}
+
+.note {
+  margin-top: 0.16em ;
+}
+
+.invisible {
+  background: transparent;
+}
