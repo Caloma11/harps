@@ -100,6 +100,33 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
     return harmonicaArray
 		}
 
+    // Finds the harmonica key for a given song key and a given harmonica "position"
+
+    const circleOfFiths = ["C", "G", "D", "A", "E", "B", "Gb", "Db", "Ab", "Eb","Bb", "F"]
+
+    function findHarpKey(songKey, position) {
+      if (position == 1) {
+        return songKey; 
+      } else {
+        let scale = reorder(circleOfFiths, songKey)
+        return scale.reverse()[position - 2]
+      }
+    }
+
+    // Finds the song key for a given harmonica key and a given harmonica "position"
+
+    function findSongKey(harpKey, position) {
+      let scale = reorder(circleOfFiths, harpKey)
+      return scale[position - 1]
+    }
+
+    // Finds the harmonica "position" for a given harmonica key and a given song key
+
+    function findPosition(songKey, harpKey) {
+      let scale = reorder(circleOfFiths, harpKey)
+      return scale.indexOf(songKey) + 1
+    }
+
 
 // -------------- HTML related content -----------------------
 
@@ -107,14 +134,40 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
 
 (function(window, document, undefined){
 
-// code that should be taken care of right away
-
 window.onload = init;
 
   function init(){
 
+    // Selected option for key of harmonica to be displayed on the main container
+
     const selectKey = document.getElementById('key');
-  
+
+    // Button, selected harmonica key, selected song key and Paragraph to hold the result,
+    // for finding a position 
+
+    const posButton = document.getElementById('pos-button')
+    const posHarp = document.getElementById('pos-harp-key')
+    const posSong = document.getElementById('pos-song-key')
+    const posResult = document.getElementById('pos-result')
+
+    // Button,selected song key, position and Paragraph to hold the result,
+    // for finding a harmonica key 
+
+    const harpButton = document.getElementById('harp-button')
+    const harpSong = document.getElementById('harp-song-key')
+    const harpPos = document.getElementById('harp-pos')
+    const harpResult = document.getElementById('harp-result')
+
+    // Button, selected harmonica key, position and Paragraph to hold the result,
+    // for finding a song key 
+
+    const songButton = document.getElementById('song-button')
+    const songHarp = document.getElementById('song-harp-key')
+    const songPos = document.getElementById('song-pos')
+    const songResult = document.getElementById('song-result')
+
+    //
+
   function fillHarp() {
     let selectedNote = selectKey.value
     let dividedNotes = harmonicaDrawer(selectedNote)
@@ -131,17 +184,38 @@ window.onload = init;
 
   }
 
+    // Binds the button to draw the harmonica
+
     selectKey.addEventListener('change', (event) => {
-      event.preventDefault();
-      fillHarp();
+      fillHarp()
+    }, {capture: true, passive: true});
+
+    // Binds the button to find the position
+
+    posButton.addEventListener('click', (event) => {
+      let songKey = posSong.value
+      let harpKey = posHarp.value
+      posResult.innerText = findPosition(songKey, harpKey)
     });
+
+    // Binds the button to find the harmonica key
+
+    harpButton.addEventListener('click', (event) => {
+      let songKey = harpSong.value
+      let position = harpPos.value
+      harpResult.innerText = findHarpKey(songKey, position)
+    });
+
+    // Binds the button to find the song key
+
+    songButton.addEventListener('click', (event) => {
+      let harpKey = songHarp.value
+      let position = songPos.value
+      songResult.innerText = findSongKey(harpKey, position)
+    });
+
+
   }
 
 })(window, document, undefined);
-
-
-
-
-
-
 
