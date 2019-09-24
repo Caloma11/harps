@@ -7,7 +7,7 @@ html {
 }
 
 .harp-container {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .circle-text {
@@ -93,6 +93,10 @@ font: 32px arial;
     border-right:  1px solid #393E41;
     border-bottom: none;
   }
+}
+
+.row {
+  max-width: 100%;
 }
 
 
