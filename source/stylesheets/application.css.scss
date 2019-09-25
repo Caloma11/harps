@@ -10,3 +10,13 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.circle-text {
+  box-shadow: 1px 1px 9px -1px rgba(0,0,0,0.75);
+  border: none;
+  margin-right: 5px;
+}
+
+.invisible, .number {
+  box-shadow: none;
+}
