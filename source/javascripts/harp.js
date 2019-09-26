@@ -134,8 +134,23 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
     // Finds the harmonica "position" for a given harmonica key and a given song key
 
     function findPosition(songKey, harpKey) {
+
+    const fancyNames = { 1: "1st",
+                         2: "2nd",
+                         3: "3rd",
+                         4: "4th",
+                         5: "5th",
+                         6: "6th",
+                         7: "7th",
+                         8: "8th",
+                         9: "9th",
+                         10: "10th",
+                         11: "11th",
+                         12:  "12th"
+                        }
+
       let scale = reorder(circleOfFiths, harpKey)
-      return scale.indexOf(songKey) + 1
+      return `${fancyNames[scale.indexOf(songKey) + 1]} position`
     }
 
 

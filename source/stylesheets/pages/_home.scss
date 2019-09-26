@@ -1,13 +1,18 @@
 body {
   margin: 0;
+  font-family: $body-font;
+}
+
+p {
+  font-family: $body-font
 }
 
 html {
-  background-color: #F6F7EB;
+  background-color: #FFFFFF;
 }
 
 .harp-container {
-  min-height: 100vh;
+  margin-bottom: 20px;
 }
 
 .circle-text {
@@ -26,7 +31,7 @@ font: 32px arial;
 .number {
   border-radius: 0;
   background: transparent;
-  color: #363832;
+  color: rgba(0, 0, 0, 0.54);
 }
 
 .reed {
@@ -69,6 +74,9 @@ font: 32px arial;
   background: transparent;
 }
 
+#pos-button, #song-button, #harp-button {
+  margin-bottom: 15px;
+}
 
 
 @media screen and (max-width: 521px) {
@@ -85,12 +93,12 @@ font: 32px arial;
   }
 
   .reed .number:first-of-type {
-    border-left:  1px solid #393E41;
+    border-left:  1px solid rgba(0, 0, 0, 0.54);
   }
 
   .number {
     border-top:    none;
-    border-right:  1px solid #393E41 !important;
+    border-right:  1px solid rgba(0, 0, 0, 0.54) !important;
     border-bottom: none;
   }
 }
