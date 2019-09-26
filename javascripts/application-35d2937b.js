@@ -12971,7 +12971,7 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
 
   // Returns any scale in any given key, given that key and the intervals, which
   // are available in the   constant
- 
+
  	function scaleNotes(note, intervals) {
  		let i = 0
  		let scale = reorder(chromaticScale, note)
@@ -12986,7 +12986,7 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
 
 		return notes
 
- 	} 
+ 	}
 
 
  	// Returns an array, in which every element is
@@ -13002,30 +13002,41 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
 
 	 	checkIfNoteMajor = function (interval) {
 		  return (interval == '') ? interval : majorScale[interval - 1];
-		}	
+		}
 		checkIfNoteChrom = function (interval) {
 		  return (interval == '') ? interval : keyChromaticScale[interval];
 		}
 
- 		let wBendBlowIntervals = harpGrid[0].map(checkIfNoteChrom)
+    createSharps = function (note) {
+      if (note == "Db") {
+        return "C#";
+      } else if (note == "Gb") {
+        return "F#";
+      } else {
+        return note;
+      }
+    }
 
- 		let bendBlowIntervals =  harpGrid[1].map(checkIfNoteChrom)	
+ 		let wBendBlowIntervals = harpGrid[0].map(checkIfNoteChrom).map(createSharps)
 
-	  let blowNotesIntervals = harpGrid[2].map(checkIfNoteMajor)	
-	 	
-	 	let drawNotesIntervals = harpGrid[3].map(checkIfNoteMajor)	
+ 		let bendBlowIntervals =  harpGrid[1].map(checkIfNoteChrom).map(createSharps)
 
-	  let bendDrawIntervals =  harpGrid[4].map(checkIfNoteChrom)
-	  
-	  let wBendDrawIntervals =  harpGrid[5].map(checkIfNoteChrom)
+	  let blowNotesIntervals = harpGrid[2].map(checkIfNoteMajor).map(createSharps)
 
-	  let whBendDrawIntervals =  harpGrid[6].map(checkIfNoteChrom)
+	 	let drawNotesIntervals = harpGrid[3].map(checkIfNoteMajor).map(createSharps)
 
-		
+	  let bendDrawIntervals =  harpGrid[4].map(checkIfNoteChrom).map(createSharps)
+
+	  let wBendDrawIntervals =  harpGrid[5].map(checkIfNoteChrom).map(createSharps)
+
+	  let whBendDrawIntervals =  harpGrid[6].map(checkIfNoteChrom).map(createSharps)
+
+
 	  let harmonicaArray = [wBendBlowIntervals, bendBlowIntervals, blowNotesIntervals, drawNotesIntervals,
   	bendDrawIntervals, wBendDrawIntervals, whBendDrawIntervals]
 
-    return harmonicaArray
+
+    return harmonicaArray.map(createSharps)
 		}
 
     // Finds the harmonica key for a given song key and a given harmonica "position"
@@ -13034,7 +13045,7 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
 
     function findHarpKey(songKey, position) {
       if (position == 1) {
-        return songKey; 
+        return songKey;
       } else {
         let scale = reorder(circleOfFiths, songKey)
         return scale.reverse()[position - 2]
@@ -13051,8 +13062,23 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
     // Finds the harmonica "position" for a given harmonica key and a given song key
 
     function findPosition(songKey, harpKey) {
+
+    const fancyNames = { 1: "1st",
+                         2: "2nd",
+                         3: "3rd",
+                         4: "4th",
+                         5: "5th",
+                         6: "6th",
+                         7: "7th",
+                         8: "8th",
+                         9: "9th",
+                         10: "10th",
+                         11: "11th",
+                         12:  "12th"
+                        }
+
       let scale = reorder(circleOfFiths, harpKey)
-      return scale.indexOf(songKey) + 1
+      return `${fancyNames[scale.indexOf(songKey) + 1]} position`
     }
 
 
@@ -13071,7 +13097,7 @@ window.onload = init;
     const selectKey = document.getElementById('key');
 
     // Button, selected harmonica key, selected song key and Paragraph to hold the result,
-    // for finding a position 
+    // for finding a position
 
     const posButton = document.getElementById('pos-button')
     const posHarp = document.getElementById('pos-harp-key')
@@ -13079,7 +13105,7 @@ window.onload = init;
     const posResult = document.getElementById('pos-result')
 
     // Button,selected song key, position and Paragraph to hold the result,
-    // for finding a harmonica key 
+    // for finding a harmonica key
 
     const harpButton = document.getElementById('harp-button')
     const harpSong = document.getElementById('harp-song-key')
@@ -13087,7 +13113,7 @@ window.onload = init;
     const harpResult = document.getElementById('harp-result')
 
     // Button, selected harmonica key, position and Paragraph to hold the result,
-    // for finding a song key 
+    // for finding a song key
 
     const songButton = document.getElementById('song-button')
     const songHarp = document.getElementById('song-harp-key')

@@ -5,276 +5,310 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
     <link href="images/favicon-e7f23d07.png" rel="icon" type="image/png" />
     <!-- Use the title from a page's frontmatter if it has one -->
     <title>Harp Reference</title>
-    <link href="stylesheets/application-1eed3140.css" rel="stylesheet" />
-    <script src="javascripts/application-81f32f8e.js"></script>
+    <link href="stylesheets/application-3a0361d9.css" rel="stylesheet" />
+    <script src="javascripts/application-35d2937b.js"></script>
   </head>
   <body>
-      <body>
-    <div class="harp-container">
-            
-          <label for="key">Key</label>
-          <select id="key">
-            <option value="C">C</option>
-            <option value="Db">Db</option>
-            <option value="D">D</option>
-            <option value="Eb">Eb</option>
-            <option value="E">E</option>
-            <option value="F">F</option>
-            <option value="Gb">Gb</option>
-            <option value="G">G</option>
-            <option value="Ab">Ab</option>
-            <option value="A">A</option>
-            <option value="Bb">Bb</option>
-            <option value="B">B</option>
-          </select>
-          
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <a class="navbar-brand" href="#">
+    <img src="images/logo-0a9eb3e7.png" alt="Logo" />
+  </a>
+
+  <div>
+    <label for="key">Key</label>
+    <select class="select-css" id="key" style="display: inline-block">
+    <option value="C">C</option>
+    <option value="Db">C#</option>
+    <option value="D">D</option>
+    <option value="Eb">Eb</option>
+    <option value="E">E</option>
+    <option value="F">F</option>
+    <option value="Gb">F#</option>
+    <option value="G">G</option>
+    <option value="Ab">Ab</option>
+    <option value="A">A</option>
+    <option value="Bb">Bb</option>
+    <option value="B">B</option>
+    </select>
+  </div>
+</div>
+
+<div class="harp-container">
+  
+  <div class="reed">
+    <div class="number circle-text">1</div>
+    <div class="number circle-text">2</div>
+    <div class="number circle-text">3</div>
+    <div class="number circle-text">4</div>
+    <div class="number circle-text">5</div>
+    <div class="number circle-text">6</div>
+    <div class="number circle-text">7</div>
+    <div class="number circle-text">8</div>
+    <div class="number circle-text">9</div>
+    <div class="number circle-text">10</div>
+  </div>
+
+  <div class="reed">
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="blow-bend circle-text"><p class = "note">Bb</p></div>
+  </div>
 
 
+  <div class="reed">
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="blow-bend circle-text"><p class = "note">Eb</p></div>
+    <div class="blow-bend circle-text"><p class = "note">F#</p></div>
+    <div class="blow-bend circle-text"><p class = "note">B</p></div>
+  </div>
 
+  <div class="reed">
+    <div class="blow circle-text"><p class = "note">C</p></div>
+    <div class="blow circle-text"><p class = "note">E</p></div>
+    <div class="blow circle-text"><p class = "note">G</p></div>
+    <div class="blow circle-text"><p class = "note">C</p></div>
+    <div class="blow circle-text"><p class = "note">E</p></div>
+    <div class="blow circle-text"><p class = "note">G</p></div>
+    <div class="blow circle-text"><p class = "note">C</p></div>
+    <div class="blow circle-text"><p class = "note">E</p></div>
+    <div class="blow circle-text"><p class = "note">G</p></div>
+    <div class="blow circle-text"><p class = "note">C</p></div>
+  </div>
 
-      <div class="reed">
-        <div class="number circle-text">1</div>
-        <div class="number circle-text">2</div>
-        <div class="number circle-text">3</div>
-        <div class="number circle-text">4</div>
-        <div class="number circle-text">5</div>
-        <div class="number circle-text">6</div>
-        <div class="number circle-text">7</div>
-        <div class="number circle-text">8</div>
-        <div class="number circle-text">9</div>
-        <div class="number circle-text">10</div>
-      </div>
+  <div class="reed">
+    <div class="draw circle-text"><p class = "note">D</p></div>
+    <div class="draw circle-text"><p class = "note">G</p></div>
+    <div class="draw circle-text"><p class = "note">B</p></div>
+    <div class="draw circle-text"><p class = "note">D</p></div>
+    <div class="draw circle-text"><p class = "note">F</p></div>
+    <div class="draw circle-text"><p class = "note">A</p></div>
+    <div class="draw circle-text"><p class = "note">B</p></div>
+    <div class="draw circle-text"><p class = "note">D</p></div>
+    <div class="draw circle-text"><p class = "note">F</p></div>
+    <div class="draw circle-text"><p class = "note">A</p></div>
+  </div>
 
-      <div class="reed">
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="blow-bend circle-text"><p class = "note">Bb</p></div>
-      </div>
+  <div class="reed">
+    <div class="draw-bend circle-text"><p class = "note">C#</p></div>
+    <div class="draw-bend circle-text"><p class = "note">F#</p></div>
+    <div class="draw-bend circle-text"><p class = "note">Bb</p></div>
+    <div class="draw-bend circle-text"><p class = "note">C#</p></div>
+    <div class="circle-text invisible"></div>
+    <div class="draw-bend circle-text"><p class = "note">Ab</p></div>
+    <div class="circle-text invisible"><p class = "note"></p></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"><p class = "note"></p></div>
+    <div class="circle-text invisible"><p class = "note"></p></div>
+  </div>
 
+  <div class="reed">
+    <div class="circle-text invisible"></div>
+    <div class="draw-bend circle-text"><p class = "note">F</p></div>
+    <div class="draw-bend circle-text"><p class = "note">A</p></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+  </div>
 
-      <div class="reed">
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="blow-bend circle-text"><p class = "note">Eb</p></div>
-        <div class="blow-bend circle-text"><p class = "note">Gb</p></div>
-        <div class="blow-bend circle-text"><p class = "note">B</p></div>
-      </div>
+  <div class="reed">
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="draw-bend circle-text"><p class = "note">Ab</p></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible"></div>
+  </div>
 
-      <div class="reed">
-        <div class="blow circle-text"><p class = "note">C</p></div>
-        <div class="blow circle-text"><p class = "note">E</p></div>
-        <div class="blow circle-text"><p class = "note">G</p></div>
-        <div class="blow circle-text"><p class = "note">C</p></div>
-        <div class="blow circle-text"><p class = "note">E</p></div>
-        <div class="blow circle-text"><p class = "note">G</p></div>
-        <div class="blow circle-text"><p class = "note">C</p></div>
-        <div class="blow circle-text"><p class = "note">E</p></div>
-        <div class="blow circle-text"><p class = "note">G</p></div>
-        <div class="blow circle-text"><p class = "note">C</p></div>
-      </div>
+</div>
 
-      <div class="reed">
-        <div class="draw circle-text"><p class = "note">D</p></div>
-        <div class="draw circle-text"><p class = "note">G</p></div>
-        <div class="draw circle-text"><p class = "note">B</p></div>
-        <div class="draw circle-text"><p class = "note">D</p></div>
-        <div class="draw circle-text"><p class = "note">F</p></div>
-        <div class="draw circle-text"><p class = "note">A</p></div>
-        <div class="draw circle-text"><p class = "note">B</p></div>
-        <div class="draw circle-text"><p class = "note">D</p></div>
-        <div class="draw circle-text"><p class = "note">F</p></div>
-        <div class="draw circle-text"><p class = "note">A</p></div>
-      </div>
+<h3 class="barely-full-width">Find a Position:</h3>
+<div class="row no-margin">
+  <div style='width: 95%; background-color: rgba(0,0,0,.15); height: 1px; margin: 5px auto 20px auto; '></div>
 
-      <div class="reed">
-        <div class="draw-bend circle-text"><p class = "note">Db</p></div>
-        <div class="draw-bend circle-text"><p class = "note">Gb</p></div>
-        <div class="draw-bend circle-text"><p class = "note">Bb</p></div>
-        <div class="draw-bend circle-text"><p class = "note">Db</p></div>
-        <div class="circle-text invisible"></div>
-        <div class="draw-bend circle-text"><p class = "note">Ab</p></div>
-        <div class="circle-text invisible"><p class = "note"></p></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"><p class = "note"></p></div>
-        <div class="circle-text invisible"><p class = "note"></p></div>
-      </div>
+  <div class="col-sm-12 col-lg-4">
 
-      <div class="reed">
-        <div class="circle-text invisible"></div>
-        <div class="draw-bend circle-text"><p class = "note">F</p></div>
-        <div class="draw-bend circle-text"><p class = "note">A</p></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-      </div>
-
-      <div class="reed">
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="draw-bend circle-text"><p class = "note">Ab</p></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-        <div class="circle-text invisible"></div>
-      </div>
-
-
-      <div>
-        <h2>Find a Position:</h2>
-
+      <div class="options-container">
+        <div class="option">
           <label for="pos-harp-key">Harmonica Key:</label>
-          <select id="pos-harp-key">
+          <select class="select-css" id="pos-harp-key">
             <option value="C">C</option>
-            <option value="Db">Db</option>
+            <option value="Db">C#</option>
             <option value="D">D</option>
             <option value="Eb">Eb</option>
             <option value="E">E</option>
             <option value="F">F</option>
-            <option value="Gb">Gb</option>
+            <option value="Gb">F#</option>
             <option value="G">G</option>
             <option value="Ab">Ab</option>
             <option value="A">A</option>
             <option value="Bb">Bb</option>
             <option value="B">B</option>
           </select>
-          
+        </div>
+
+        <div class="option">
           <label for="pos-song-key">Song Key:</label>
-          <select id="pos-song-key">
+          <select class="select-css" id="pos-song-key">
             <option value="C">C</option>
-            <option value="Db">Db</option>
+            <option value="Db">C#</option>
             <option value="D">D</option>
             <option value="Eb">Eb</option>
             <option value="E">E</option>
             <option value="F">F</option>
-            <option value="Gb">Gb</option>
+            <option value="Gb">F#</option>
             <option value="G">G</option>
             <option value="Ab">Ab</option>
             <option value="A">A</option>
             <option value="Bb">Bb</option>
             <option value="B">B</option>
           </select>
-          
-          <button id="pos-button">Go!</button>
-          
+        </div>
+      </div>
+
+      <div class="results-container">
+        <div class="pos-result-container" style="background-color: red">
           <p id ='pos-result' style="display: inline-block;"></p>
+        </div>
+        <button id="pos-button" class="text-center">Go!</button>
+      </div>
+  </div>
 
+
+
+
+
+
+  <h3 class="barely-full-width">Find a Harmonica Key:</h3>
+  <div class="barely-full-width" style='background-color: rgba(0,0,0,.15); height: 1px; margin: 5px auto 20px auto;'></div>
+
+  <div class="col-sm-12 col-lg-4">
+
+
+    <div class="options-container">
+      <div class="option">
+        <label for="harp-song-key">Song Key:</label>
+        <select class="select-css" id="harp-song-key">
+          <option value="C">C</option>
+          <option value="Db">C#</option>
+          <option value="D">D</option>
+          <option value="Eb">Eb</option>
+          <option value="E">E</option>
+          <option value="F">F</option>
+          <option value="Gb">F#</option>
+          <option value="G">G</option>
+          <option value="Ab">Ab</option>
+          <option value="A">A</option>
+          <option value="Bb">Bb</option>
+          <option value="B">B</option>
+        </select>
       </div>
 
-      <div>
-        <h2>Find a Harmonica Key:</h2>
-
-          <label for="harp-song-key">Song Key:</label>
-          <select id="harp-song-key">
-            <option value="C">C</option>
-            <option value="Db">Db</option>
-            <option value="D">D</option>
-            <option value="Eb">Eb</option>
-            <option value="E">E</option>
-            <option value="F">F</option>
-            <option value="Gb">Gb</option>
-            <option value="G">G</option>
-            <option value="Ab">Ab</option>
-            <option value="A">A</option>
-            <option value="Bb">Bb</option>
-            <option value="B">B</option>
-          </select>
-          
-          <label for="harp-pos">Position:</label>
-          <select id="harp-pos">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-          </select>
-          
-          <button id="harp-button">Go!</button>
-          
-          <p id ='harp-result' style="display: inline-block;"></p>
-
+      <div class="option">
+        <label for="harp-pos">Position:</label>
+        <select class="select-css" id="harp-pos">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
       </div>
-
-
-     <div>
-        <h2>Find a Song Key:</h2>
-
-          <label for="song-harp-key">Harmonica Key:</label>
-          <select id="song-harp-key">
-            <option value="C">C</option>
-            <option value="Db">Db</option>
-            <option value="D">D</option>
-            <option value="Eb">Eb</option>
-            <option value="E">E</option>
-            <option value="F">F</option>
-            <option value="Gb">Gb</option>
-            <option value="G">G</option>
-            <option value="Ab">Ab</option>
-            <option value="A">A</option>
-            <option value="Bb">Bb</option>
-            <option value="B">B</option>
-          </select>
-          
-          <label for="song-pos">Position:</label>
-          <select id="song-pos">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-          </select>
-          
-          <button id="song-button">Go!</button>
-          
-          <p id ='song-result' style="display: inline-block;"></p>
-
-      </div>
-
-
-
-
-
-
-
-
     </div>
 
-  </body>
+
+      <div class="results-container">
+        <div class="harp-result-container" style="background-color: red">
+          <p id ='harp-result' style="display: inline-block;"></p>
+        </div>
+        <button id="harp-button" class="text-center">Go!</button>
+      </div>
+
+  </div>
+
+
+ <h3 class="barely-full-width">Find a Song Key:</h3>
+ <div class="barely-full-width" style='background-color: rgba(0,0,0,.15); height: 1px; margin: 5px auto 20px auto;'></div>
+ <div class="col-sm-12 col-lg-4">
+
+    <div class="options-container">
+      <div class="option">
+        <label for="song-harp-key">Harmonica Key:</label>
+        <select class="select-css" id="song-harp-key">
+          <option value="C">C</option>
+          <option value="Db">C#</option>
+          <option value="D">D</option>
+          <option value="Eb">Eb</option>
+          <option value="E">E</option>
+          <option value="F">F</option>
+          <option value="Gb">F#</option>
+          <option value="G">G</option>
+          <option value="Ab">Ab</option>
+          <option value="A">A</option>
+          <option value="Bb">Bb</option>
+          <option value="B">B</option>
+        </select>
+      </div>
+
+      <div class="option">
+        <label for="song-pos">Position:</label>
+        <select class="select-css" id="song-pos">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+      </div>
+    </div>
+
+      <div class="results-container">
+        <div class="song-result-container" style="background-color: red">
+          <p id ='song-result' style="display: inline-block;"></p>
+        </div>
+        <button id="song-button" class="text-center">Go!</button>
+      </div>
+
+  </div>
+</div>
 
   </body>
 </html>
