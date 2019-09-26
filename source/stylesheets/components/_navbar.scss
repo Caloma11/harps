@@ -1,0 +1,17 @@
+.navbar {
+  justify-content: space-between;
+  background: white;
+  box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.26);
+}
+
+.navbar .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar .navbar-brand img {
+  width: 40px;
+}
+
+
+// for the squares
+// border-top: 1px solid rgba(0,0,0,.15)!important;
