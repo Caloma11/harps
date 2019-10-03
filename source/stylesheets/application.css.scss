@@ -36,6 +36,10 @@
   margin: 0;
 }
 
+.automatically-margined {
+  margin: auto;
+}
+
 label {
   font-weight: 800;
 }
@@ -52,4 +56,16 @@ label {
 .barely-full-width {
   width: 95%;
   margin: auto;
+}
+
+.button {
+  max-width: 32px;
+  max-height: 32px;
+  &:active {
+    transform: translate(1px, -1px);
+  }
+}
+
+.result {
+  font-weight: bold;
 }
