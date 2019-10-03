@@ -7,7 +7,7 @@
 <div class="row no-margin">
   <div style='width: 95%; background-color: rgba(0,0,0,.15); height: 1px; margin: 5px auto 20px auto; '></div>
 
-  <div class="col-sm-12 col-lg-4">
+  <div class="col-sm-12 col-lg-6 automatically-margined">
 
       <div class="options-container">
         <div class="option">
@@ -48,10 +48,11 @@
       </div>
 
       <div class="results-container">
-        <div class="pos-result-container" style="background-color: red">
-          <p id ='pos-result' style="display: inline-block;"></p>
+        <div class="pos-result-container">
+          <p class="result" id ='pos-result' style="display: inline-block;"></p>
         </div>
-        <button id="pos-button" class="text-center">Go!</button>
+
+        <%= image_tag 'play.png', id: "pos-button", class: "text-center button" %>
       </div>
   </div>
 
@@ -63,7 +64,7 @@
   <h3 class="barely-full-width">Find a Harmonica Key:</h3>
   <div class="barely-full-width" style='background-color: rgba(0,0,0,.15); height: 1px; margin: 5px auto 20px auto;'></div>
 
-  <div class="col-sm-12 col-lg-4">
+  <div class="col-sm-12 col-lg-6 automatically-margined">
 
 
     <div class="options-container">
@@ -106,10 +107,10 @@
 
 
       <div class="results-container">
-        <div class="harp-result-container" style="background-color: red">
-          <p id ='harp-result' style="display: inline-block;"></p>
+        <div class="harp-result-container">
+          <p class="result" id ='harp-result' style="display: inline-block;"></p>
         </div>
-        <button id="harp-button" class="text-center">Go!</button>
+        <%= image_tag 'play.png', id: "harp-button", class: "text-center button" %>
       </div>
 
   </div>
@@ -117,7 +118,7 @@
 
  <h3 class="barely-full-width">Find a Song Key:</h3>
  <div class="barely-full-width" style='background-color: rgba(0,0,0,.15); height: 1px; margin: 5px auto 20px auto;'></div>
- <div class="col-sm-12 col-lg-4">
+ <div class="col-sm-12 col-lg-6 automatically-margined">
 
     <div class="options-container">
       <div class="option">
@@ -158,10 +159,10 @@
     </div>
 
       <div class="results-container">
-        <div class="song-result-container" style="background-color: red">
-          <p id ='song-result' style="display: inline-block;"></p>
+        <div class="song-result-container">
+          <p class="result" id ='song-result' style="display: inline-block;"></p>
         </div>
-        <button id="song-button" class="text-center">Go!</button>
+        <%= image_tag 'play.png', id: "song-button", class: "text-center button" %>
       </div>
 
   </div>
