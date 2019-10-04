@@ -72,6 +72,22 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
 
  		let keyChromaticScale = reorder(chromaticScale, key)
 
+    const oneHalfStepUp = {
+      "C": "C#",
+      "C#": "D",
+      "D": "Eb",
+      "Eb": "E",
+      "E": "F",
+      "F": "F#",
+      "F#": "G",
+      "G": "Ab",
+      "Ab": "A",
+      "A": "Bb",
+      "Bb": "B",
+      "B": "C"
+    };
+
+
 	 	checkIfNoteMajor = function (interval) {
 		  return (interval == '') ? interval : majorScale[interval - 1];
 		}
@@ -108,7 +124,32 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
   	bendDrawIntervals, wBendDrawIntervals, whBendDrawIntervals]
 
 
-    return harmonicaArray.map(createSharps)
+    const toggleOverblows = () => {
+      const blowBendReedNotes = document.querySelectorAll('.reed')[2].querySelectorAll('.circle-text');
+
+      [0, 3, 4, 5].forEach((index) => {
+        let placeholder = blowBendReedNotes[index]
+        console.log(placeholder)
+        placeholder.innerHTML == "" ? placeholder.innerHTML = "<p class='note'></p>" : placeholder.innerHTML = "";
+        placeholder.classList.toggle("overblow");
+        placeholder.classList.toggle("invisible");
+      })
+      window.obstatus ? window.obstatus = false : window.obstatus = true
+    }
+
+    const fillOverblows = (harmonicaArray) => {
+      [0, 3, 4, 5].forEach((index) => {
+        harmonicaArray[1][index] = oneHalfStepUp[harmonicaArray[3][index]]
+      })
+    }
+
+    toggleOverblows();
+
+    if (window.obstatus) {
+      fillOverblows(harmonicaArray)
+    }
+
+    return harmonicaArray
 		}
 
     // Finds the harmonica key for a given song key and a given harmonica "position"
@@ -244,4 +285,22 @@ window.onload = init;
   }
 
 })(window, document, undefined);
+
+
+
+
+
+
+// [
+//   [ '', '', '', '', '', '', '', '', '', 'Bb' ],
+//   [ '', '', '', '', '', '', '', 'Eb', 'F#', 'B' ],
+//   [ 'C', 'E', 'G', 'C', 'E', 'G', 'C', 'E', 'G', 'C' ],
+//   [ 'D', 'G', 'B', 'D', 'F', 'A', 'B', 'D', 'F', 'A' ],
+//   [ 'C#', 'F#', 'Bb', 'C#', '', 'Ab', '', '', '', '' ],
+//   [ '', 'F', 'A', '', '', '', '', '', '', '' ],
+//   [ '', '', 'Ab', '', '', '', '', '', '', '' ]
+// ]
+
+
+// Create overblow toggler => part of settings
 
