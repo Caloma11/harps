@@ -124,12 +124,13 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
   	bendDrawIntervals, wBendDrawIntervals, whBendDrawIntervals]
 
 
+    // Allows overblows to be displayed
+
     const toggleOverblows = () => {
       const blowBendReedNotes = document.querySelectorAll('.reed')[2].querySelectorAll('.circle-text');
 
       [0, 3, 4, 5].forEach((index) => {
         let placeholder = blowBendReedNotes[index]
-        console.log(placeholder)
         placeholder.innerHTML == "" ? placeholder.innerHTML = "<p class='note'></p>" : placeholder.innerHTML = "";
         placeholder.classList.toggle("overblow");
         placeholder.classList.toggle("invisible");
@@ -137,16 +138,49 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
       window.obstatus ? window.obstatus = false : window.obstatus = true
     }
 
+
+    // Puts the overblow notes on their correspondent spots
+
     const fillOverblows = (harmonicaArray) => {
       [0, 3, 4, 5].forEach((index) => {
         harmonicaArray[1][index] = oneHalfStepUp[harmonicaArray[3][index]]
       })
     }
 
+
+    // Allows overdraws to be displayed
+
+    const toggleOverdraws = () => {
+      const halfStepDrawBendNotes = document.querySelectorAll('.reed')[5].querySelectorAll('.circle-text');
+
+      [6, 8, 9].forEach((index) => {
+        let placeholder = halfStepDrawBendNotes[index]
+        placeholder.innerHTML == "" ? placeholder.innerHTML = "<p class='note'></p>" : placeholder.innerHTML = "";
+        placeholder.classList.toggle("overdraw");
+        placeholder.classList.toggle("invisible");
+      })
+      window.obstatus ? window.odstatus = false : window.odstatus = true
+    }
+
+
+    // Puts the overbdraw notes on their correspondent spots
+
+    const fillOverdraws = (harmonicaArray) => {
+      [6, 8, 9].forEach((index) => {
+        harmonicaArray[4][index] = oneHalfStepUp[harmonicaArray[2][index]]
+      })
+    }
+
+    toggleOverdraws();
     toggleOverblows();
+
 
     if (window.obstatus) {
       fillOverblows(harmonicaArray)
+    }
+
+    if (window.odstatus) {
+      fillOverdraws(harmonicaArray)
     }
 
     return harmonicaArray
@@ -233,7 +267,7 @@ window.onload = init;
     const songPos = document.getElementById('song-pos')
     const songResult = document.getElementById('song-result')
 
-    //
+    // Puts the notes on their correspondent holes
 
   function fillHarp() {
     let selectedNote = selectKey.value
@@ -285,22 +319,6 @@ window.onload = init;
   }
 
 })(window, document, undefined);
-
-
-
-
-
-
-// [
-//   [ '', '', '', '', '', '', '', '', '', 'Bb' ],
-//   [ '', '', '', '', '', '', '', 'Eb', 'F#', 'B' ],
-//   [ 'C', 'E', 'G', 'C', 'E', 'G', 'C', 'E', 'G', 'C' ],
-//   [ 'D', 'G', 'B', 'D', 'F', 'A', 'B', 'D', 'F', 'A' ],
-//   [ 'C#', 'F#', 'Bb', 'C#', '', 'Ab', '', '', '', '' ],
-//   [ '', 'F', 'A', '', '', '', '', '', '', '' ],
-//   [ '', '', 'Ab', '', '', '', '', '', '', '' ]
-// ]
-
 
 // Create overblow toggler => part of settings
 
