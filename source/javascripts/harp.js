@@ -171,8 +171,8 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
       })
     }
 
-    toggleOverdraws();
-    toggleOverblows();
+    // toggleOverdraws();
+    // toggleOverblows();
 
 
     if (window.obstatus) {
