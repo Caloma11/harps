@@ -9,17 +9,14 @@
     <link href="images/favicon-e7f23d07.png" rel="icon" type="image/png" />
     <!-- Use the title from a page's frontmatter if it has one -->
     <title>Harp Reference</title>
-    <link href="stylesheets/application-1455a97a.css" rel="stylesheet" />
-    <script src="javascripts/application-35d2937b.js"></script>
+
+    <link href="stylesheets/application-49048706.css" rel="stylesheet" />
+    <script src="javascripts/application-f161c146.js"></script>
   </head>
   <body>
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand" href="#">
     <img src="images/logo-0a9eb3e7.png" alt="Logo" />
-  </a>
-
   <div>
-    <label for="key">Key</label>
     <select class="select-css" id="key" style="display: inline-block">
     <option value="C">C</option>
     <option value="Db">C#</option>
@@ -35,6 +32,54 @@
     <option value="B">B</option>
     </select>
   </div>
+  <a data-toggle="modal" data-target=".bd-example-modal-sm"><img src="images/settings-48da6b03.svg" class="settings" alt="Settings" /></a>
+
+<div id ="myModal"class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" style="font-weight: 600">Options:</h5>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+      <div class="options">
+
+        <div class="form-group">
+          <span class="switch switch-sm">
+            <input type="checkbox" class="switch" id="overblows-switch">
+            <label for="overblows-switch">Show overblows</label>
+          </span>
+        </div>
+
+        <div class="form-group">
+          <span class="switch switch-sm">
+            <input type="checkbox" class="switch" id="overdraws-switch">
+            <label for="overdraws-switch">Show overdraws</label>
+          </span>
+        </div>
+
+        <div class="form-group">
+          <span class="switch switch-sm">
+            <input type="checkbox" class="switch" id="sharps-switch" disabled>
+            <label for="sharps-switch">Show only sharps</label>
+          </span>
+        </div>
+
+
+        <div class="form-group">
+          <span class="switch switch-sm">
+            <input type="checkbox" class="switch" id="flats-switch" disabled>
+            <label for="flats-switch">Show only flats</label>
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>
 
 <div class="harp-container">
@@ -67,12 +112,12 @@
 
 
   <div class="reed">
+    <div class="circle-text invisible overblow"><p class="note">Eb</p></div>
     <div class="circle-text invisible"></div>
     <div class="circle-text invisible"></div>
-    <div class="circle-text invisible"></div>
-    <div class="circle-text invisible"></div>
-    <div class="circle-text invisible"></div>
-    <div class="circle-text invisible"></div>
+    <div class="circle-text invisible overblow"><p class="note">Eb</p></div>
+    <div class="circle-text invisible overblow"><p class="note">F#</p></div>
+    <div class="circle-text invisible overblow"><p class="note">Bb</p></div>
     <div class="circle-text invisible"></div>
     <div class="blow-bend circle-text"><p class = "note">Eb</p></div>
     <div class="blow-bend circle-text"><p class = "note">F#</p></div>
@@ -112,10 +157,10 @@
     <div class="draw-bend circle-text"><p class = "note">C#</p></div>
     <div class="circle-text invisible"></div>
     <div class="draw-bend circle-text"><p class = "note">Ab</p></div>
-    <div class="circle-text invisible"><p class = "note"></p></div>
+    <div class="circle-text invisible overdraw"><p class="note">C#</p></div>
     <div class="circle-text invisible"></div>
-    <div class="circle-text invisible"><p class = "note"></p></div>
-    <div class="circle-text invisible"><p class = "note"></p></div>
+    <div class="circle-text invisible overdraw"><p class="note">Ab</p></div>
+    <div class="circle-text invisible overdraw"><p class="note">C#</p></div>
   </div>
 
   <div class="reed">
@@ -311,5 +356,7 @@
   </div>
 </div>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>

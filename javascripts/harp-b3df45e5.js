@@ -1,21 +1,21 @@
 const scalesIntervals = {
 
-  majorScale: [2, 2, 1, 2, 2, 2, 1],
-  naturalMinorScale: [2, 1, 2, 2, 1, 2, 2],
-  minorPentatonicScale: [2, 2, 3, 2, 3],
-  bluesScale: [3, 2, 1, 1, 3, 2],
-  harmonicMinorScale: [2, 1, 2, 2, 1, 3, 2],
-  melodicMinorScale: [2, 1, 2, 2, 2, 2, 1],
-  ionianScale: [2, 2, 1, 2, 2, 2, 1],
-  dorianScale:[2, 1, 2, 2, 2, 1, 2],
-  phrygianScale: [1, 2, 2, 2, 1, 2, 2],
-  lydianScale: [2, 2, 2, 1, 2, 2, 1],
-  mixolydianScale: [2, 2, 1, 2, 2, 1, 2],
-  aeolianScale: [2, 1, 2, 2, 1, 2, 2],
-  locrianScale: [1, 2, 2, 1, 2, 2, 2],
-  wholeToneScale: [2, 2, 2, 2, 2, 2],
-  wholeToneDiminished: [2, 1, 2, 1, 2, 1, 2, 1],
-  wholeHalfDiminished: [1, 2, 1, 2, 1, 2, 1, 2]
+  majorScale: [2, 2, 1, 2, 2, 2, 1]//,
+  // naturalMinorScale: [2, 1, 2, 2, 1, 2, 2],
+  // minorPentatonicScale: [2, 2, 3, 2, 3],
+  // bluesScale: [3, 2, 1, 1, 3, 2],
+  // harmonicMinorScale: [2, 1, 2, 2, 1, 3, 2],
+  // melodicMinorScale: [2, 1, 2, 2, 2, 2, 1],
+  // ionianScale: [2, 2, 1, 2, 2, 2, 1],
+  // dorianScale:[2, 1, 2, 2, 2, 1, 2],
+  // phrygianScale: [1, 2, 2, 2, 1, 2, 2],
+  // lydianScale: [2, 2, 2, 1, 2, 2, 1],
+  // mixolydianScale: [2, 2, 1, 2, 2, 1, 2],
+  // aeolianScale: [2, 1, 2, 2, 1, 2, 2],
+  // locrianScale: [1, 2, 2, 1, 2, 2, 2],
+  // wholeToneScale: [2, 2, 2, 2, 2, 2],
+  // wholeToneDiminished: [2, 1, 2, 1, 2, 1, 2, 1],
+  // wholeHalfDiminished: [1, 2, 1, 2, 1, 2, 1, 2]
   }
 
 
@@ -72,6 +72,22 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
 
  		let keyChromaticScale = reorder(chromaticScale, key)
 
+    const oneHalfStepUp = {
+      "C": "C#",
+      "C#": "D",
+      "D": "Eb",
+      "Eb": "E",
+      "E": "F",
+      "F": "F#",
+      "F#": "G",
+      "G": "Ab",
+      "Ab": "A",
+      "A": "Bb",
+      "Bb": "B",
+      "B": "C"
+    };
+
+
 	 	checkIfNoteMajor = function (interval) {
 		  return (interval == '') ? interval : majorScale[interval - 1];
 		}
@@ -108,7 +124,31 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
   	bendDrawIntervals, wBendDrawIntervals, whBendDrawIntervals]
 
 
-    return harmonicaArray.map(createSharps)
+
+
+    // Puts the overblow notes on their correspondent spots
+
+    const fillOverblows = (harmonicaArray) => {
+      [0, 3, 4, 5].forEach((index) => {
+        harmonicaArray[1][index] = oneHalfStepUp[harmonicaArray[3][index]]
+      })
+    }
+
+    // Puts the overbdraw notes on their correspondent spots
+
+    const fillOverdraws = (harmonicaArray) => {
+      [6, 8, 9].forEach((index) => {
+        harmonicaArray[4][index] = oneHalfStepUp[harmonicaArray[2][index]]
+      })
+    }
+
+    // Fills the harmonica with the overbends
+
+    fillOverblows(harmonicaArray)
+    fillOverdraws(harmonicaArray)
+
+
+    return harmonicaArray
 		}
 
     // Finds the harmonica key for a given song key and a given harmonica "position"
@@ -117,10 +157,10 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
 
     function findHarpKey(songKey, position) {
       if (position == 1) {
-        return songKey;
+        return `${songKey} harmonica`;
       } else {
         let scale = reorder(circleOfFiths, songKey)
-        return scale.reverse()[position - 2]
+        return `${scale.reverse()[position - 2]} harmonica`
       }
     }
 
@@ -128,7 +168,7 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
 
     function findSongKey(harpKey, position) {
       let scale = reorder(circleOfFiths, harpKey)
-      return scale[position - 1]
+      return `Key of ${scale[position - 1]}`
     }
 
     // Finds the harmonica "position" for a given harmonica key and a given song key
@@ -192,7 +232,7 @@ window.onload = init;
     const songPos = document.getElementById('song-pos')
     const songResult = document.getElementById('song-result')
 
-    //
+    // Puts the notes on their correspondent holes
 
   function fillHarp() {
     let selectedNote = selectKey.value
@@ -240,6 +280,40 @@ window.onload = init;
       songResult.innerText = findSongKey(harpKey, position)
     });
 
+    // ------- Overbends -------
+
+    // Allows overblows to be displayed
+
+    const toggleOverblows = () => {
+      const blowBendReedNotes = document.querySelectorAll('.reed')[2].querySelectorAll('.circle-text');
+      [0, 3, 4, 5].forEach((index) => {
+        blowBendReedNotes[index].classList.toggle("invisible");
+      })
+      window.obstatus ? window.obstatus = false : window.obstatus = true
+    }
+
+    // Allows overdraws to be displayed
+
+    const toggleOverdraws = () => {
+      const halfStepDrawBendNotes = document.querySelectorAll('.reed')[5].querySelectorAll('.circle-text');
+      [6, 8, 9].forEach((index) => {
+        halfStepDrawBendNotes[index].classList.toggle("invisible");
+      })
+      window.odstatus ? window.odstatus = false : window.odstatus = true
+    }
+
+    // Binds the switches with their correspondent functions
+
+    overblowsSwitch = document.getElementById("overblows-switch");
+    overdrawsSwitch = document.getElementById("overdraws-switch");
+
+    overblowsSwitch.addEventListener('change', (event) => {
+      toggleOverblows();
+    });
+
+    overdrawsSwitch.addEventListener('change', (event) => {
+      toggleOverdraws();
+    });
 
   }
 
