@@ -1,10 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand" href="#">
     <%= image_tag 'logo.png' %>
-  </a>
-
   <div>
-    <label for="key">Key</label>
     <select class="select-css" id="key" style="display: inline-block">
     <option value="C">C</option>
     <option value="Db">C#</option>
@@ -20,4 +16,5 @@
     <option value="B">B</option>
     </select>
   </div>
+  <%= partial 'partials/settings' %>
 </div>

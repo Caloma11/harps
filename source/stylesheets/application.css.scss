@@ -3,11 +3,7 @@
 @import "config/colors";
 @import "config/bootstrap_variables";
 
-// External libraries
-// @import "font-awesome-sprockets";
-// @import "font-awesome";
-
-// Your CSS partials
+// CSS partials
 @import "components/index";
 @import "pages/index";
 
@@ -64,8 +60,33 @@ label {
   &:active {
     transform: translate(1px, -1px);
   }
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 }
 
 .result {
   font-weight: bold;
+}
+
+.settings {
+  width: 24px;
+  height: 24px;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
+
+.fade {
+  padding-right: 0;
+}
+
+.options {
+  padding: 50px;
+}
+
+.custom-control {
+  margin-bottom: 20px;
 }
