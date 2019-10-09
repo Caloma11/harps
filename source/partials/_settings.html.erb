@@ -1,0 +1,47 @@
+<a data-toggle="modal" data-target=".bd-example-modal-sm"><%= image_tag 'settings.svg', class: 'settings' %></a>
+
+<div id ="myModal"class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" style="font-weight: 600">Options:</h5>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+      <div class="options">
+
+        <div class="form-group">
+          <span class="switch switch-sm">
+            <input type="checkbox" class="switch" id="overblows-switch">
+            <label for="overblows-switch">Show overblows</label>
+          </span>
+        </div>
+
+        <div class="form-group">
+          <span class="switch switch-sm">
+            <input type="checkbox" class="switch" id="overdraws-switch">
+            <label for="overdraws-switch">Show overdraws</label>
+          </span>
+        </div>
+
+        <div class="form-group">
+          <span class="switch switch-sm">
+            <input type="checkbox" class="switch" id="sharps-switch" disabled>
+            <label for="sharps-switch">Show only sharps</label>
+          </span>
+        </div>
+
+
+        <div class="form-group">
+          <span class="switch switch-sm">
+            <input type="checkbox" class="switch" id="flats-switch" disabled>
+            <label for="flats-switch">Show only flats</label>
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
