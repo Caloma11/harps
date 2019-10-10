@@ -1,0 +1,63 @@
+.harp-container {
+  margin-bottom: 20px;
+}
+
+.circle-text {
+display: inline-block;
+height: 45px;
+width: 45px;
+margin-right: 5px;
+text-align: center;
+border-radius: 50%;
+background: #000;
+color: #fff;
+font: 32px arial;
+box-shadow: 1px 1px 9px -1px rgba(0,0,0,0.75);
+border: none;
+}
+
+
+.number {
+  border-radius: 0;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.54);
+  box-shadow: none;
+}
+
+.reed {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+  align-items: center;
+}
+
+.overdraw {
+  background: #DBD56E;
+  border-radius: 20%;
+}
+
+.blow-bend {
+  background: #F06449;
+}
+
+.blow {
+  background: #BA2D0B;
+}
+
+.draw {
+  background: #003049;
+}
+
+.draw-bend {
+  background: #249E8F;
+}
+
+.overblow {
+  background: #E5DC32;
+  border-radius: 20%;
+}
+
+.note {
+  margin-top: 0.16em ;
+}
