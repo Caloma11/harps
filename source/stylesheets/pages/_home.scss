@@ -38,6 +38,8 @@ font: 32px arial;
   display: flex;
   justify-content: center;
   padding: 10px;
+  position: relative;
+  align-items: center;
 }
 
 .overdraw {
@@ -76,6 +78,12 @@ font: 32px arial;
 
 #pos-button, #song-button, #harp-button {
   margin-bottom: 15px;
+}
+
+@media screen and (max-width: 900px) {
+  .caption {
+    display: none;
+  }
 }
 
 
