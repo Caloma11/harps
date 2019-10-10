@@ -154,9 +154,9 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
     // Finds the harmonica key for a given song key and a given harmonica "position"
 
     const circleOfFiths = ["C", "G", "D", "A", "E", "B", "Gb", "Db", "Ab", "Eb","Bb", "F"]
+    const subst = {"Db": "C#", "Gb": "F#"}
 
     function findHarpKey(songKey, position) {
-      const subst = {"Db": "C#", "Gb": "F#"}
       if (position == 1) {
         return `${songKey == "Gb" || songKey == "Db" ? subst[songKey] : songKey} harmonica`;
       } else {
@@ -171,7 +171,6 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
 
     function findSongKey(harpKey, position) {
       let scale = reorder(circleOfFiths, harpKey)
-      const subst = {"Db": "C#", "Gb": "F#"}
       let preResult = scale[position - 1]
       let result = preResult == "Gb" || preResult == "Db" ? subst[preResult] : preResult
       return `Key of ${result}`
