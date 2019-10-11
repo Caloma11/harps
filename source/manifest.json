@@ -2,7 +2,7 @@
   "name": "Harpr",
   "short_name": "Harpr",
   "lang": "en",
-  "start_url": "/harps",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#003049",
