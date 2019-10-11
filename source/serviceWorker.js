@@ -2,9 +2,6 @@ const staticAssets = [
     'index.html',
     'stylesheets/application.css',
     'javascripts/application.js',
-    'images/play.png',
-    'images/logo.png',
-    'images/settings.svg'
 ];
 
 self.addEventListener('install', async event => {
