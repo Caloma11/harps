@@ -3,8 +3,7 @@ const staticAssets = [
     'stylesheets/application.css',
     'javascripts/application.js',
     'images/play.png',
-    'images/icon-192x192.png.png',
-    'images/logo.pmg',
+    'images/logo.png',
     'images/settings.svg'
 ];
 
