@@ -32,6 +32,7 @@
     <script>
       window.addEventListener('load', async e => {
         if ('serviceWorker' in navigator) {
+            scope: '.'
             try {
                 navigator.serviceWorker.register('serviceWorker.js');
                 console.log('SW registered');
