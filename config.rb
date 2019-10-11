@@ -9,6 +9,10 @@ page '/*.json', layout: false
 page '/*.txt', layout: false
 
 configure :build do
+  # Use “pretty” URLs (without the `.html` suffix)
+  activate :directory_indexes
+
+  # Append hashes to compiled assets
   activate :minify_css
   # activate :minify_javascript
   activate :asset_hash

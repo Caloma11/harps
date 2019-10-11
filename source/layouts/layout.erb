@@ -8,9 +8,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="msapplication-starturl" content="/">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="theme-color" content="#003049">
 
-<link rel="icon" type="image/svg" sizes="192x192" href="images/manifest-icon.png">
-<link rel="apple-touch-icon" type="image/png" sizes="192x192" href="images/manifest-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://i.imgur.com/zvd5wgV.png">
+<link rel="apple-touch-icon" type="image/png" sizes="192x192" href="https://i.imgur.com/zvd5wgV.png">
 
 
     <meta charset="utf-8">
@@ -19,8 +20,8 @@
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" %>
     <%= favicon_tag 'images/favicon.png' %>
-    <!-- Use the title from a page's frontmatter if it has one -->
     <title>Harp Reference</title>
+    <meta name="description" content="A tool for referencing diatonic harmonica layouts, positions, and keys."/>
 
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
@@ -32,6 +33,7 @@
     <script>
       window.addEventListener('load', async e => {
         if ('serviceWorker' in navigator) {
+            scope: '.'
             try {
                 navigator.serviceWorker.register('serviceWorker.js');
                 console.log('SW registered');
