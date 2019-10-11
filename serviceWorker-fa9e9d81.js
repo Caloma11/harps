@@ -1,7 +1,11 @@
 const staticAssets = [
     'index.html',
     'stylesheets/application-b586b293.css',
-    'javascripts/application-0963bb00.js'
+    'javascripts/application-0963bb00.js',
+    'images/play-7ebf12ad.png',
+    'images/manifest-icon-8e548835.png',
+    'images/logo.pmg',
+    'images/settings-48da6b03.svg'
 ];
 
 self.addEventListener('install', async event => {
