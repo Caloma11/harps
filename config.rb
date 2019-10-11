@@ -13,7 +13,6 @@ configure :build do
   activate :directory_indexes
 
   # Append hashes to compiled assets
-  activate :asset_hash
   activate :minify_css
   # activate :minify_javascript
   activate :asset_hash
