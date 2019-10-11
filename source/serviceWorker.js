@@ -1,5 +1,5 @@
 const staticAssets = [
-    '/index.html',
+    '/',
     'stylesheets/application.css',
     'javascripts/application.js',
 ];
