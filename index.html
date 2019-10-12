@@ -2,15 +2,25 @@
 <html>
   <head>
 
-<link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json">
 
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="msapplication-starturl" content="/">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-starturl" content="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#003049">
 
-<link rel="icon" type="image/svg" sizes="192x192" href="images/manifest-icon.png">
-<link rel="apple-touch-icon" type="image/png" sizes="192x192" href="images/manifest-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://i.imgur.com/zvd5wgV.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="https://i.imgur.com/zvd5wgV.png">
+
+
+    <meta property="og:title" content="Harp Reference">
+    <meta property="og:site_name" content="Harpr">
+    <meta property="og:url" content="https://harpr.org">
+    <meta property="og:description" content="A tool for referencing diatonic harmonica layouts, positions, and song keys.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.imgur.com/FTwR9yL.png">
+
 
 
     <meta charset="utf-8">
@@ -19,15 +29,17 @@
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
     <link href="images/favicon-e7f23d07.png" rel="icon" type="image/png" />
-    <!-- Use the title from a page's frontmatter if it has one -->
-    <title>Harp Reference</title>
-
-    <link href="stylesheets/application-b586b293.css" rel="stylesheet" />
-    <script src="javascripts/application-0963bb00.js"></script>
+    <title>Harp Reference - Note layouts, positions, and song keys.</title>
+    <meta name="description" content="A tool for referencing diatonic harmonica layouts, positions, and song keys."/>
+    <link href="stylesheets/application-b6fa190d.css" rel="stylesheet" />
   </head>
   <body>
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-    <img src="images/logo-0a9eb3e7.png" alt="Logo" />
+  <h1 style="margin: 0">
+    <a href="#" style="line-height: 0; display: block">
+      <img src="images/logo-0a9eb3e7.png" alt="Diatonic Harmonica reference" />
+    </a>
+  </h1>
   <div>
     <select class="select-css" id="key" style="display: inline-block">
     <option value="C">C</option>
@@ -136,6 +148,7 @@
     <div class="blow-bend circle-text"><p class = "note">Eb</p></div>
     <div class="blow-bend circle-text"><p class = "note">F#</p></div>
     <div class="blow-bend circle-text"><p class = "note">B</p></div>
+    <ul><li class="ob-caption">Overblows</li></ul>
   </div>
 
   <div class="reed">
@@ -178,6 +191,7 @@
     <div class="circle-text invisible"></div>
     <div class="circle-text invisible overdraw"><p class="note">Ab</p></div>
     <div class="circle-text invisible overdraw"><p class="note">C#</p></div>
+    <ul><li class="ob-caption" id="od-caption">Overdraws</li></ul>
   </div>
 
   <div class="reed">
@@ -375,13 +389,15 @@
   </div>
 </div>
 
+    <script src="javascripts/application-eb600602.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
       window.addEventListener('load', async e => {
         if ('serviceWorker' in navigator) {
+            scope: '.'
             try {
-                navigator.serviceWorker.register('serviceWorker-fa9e9d81.js');
+                navigator.serviceWorker.register('serviceWorker-7690eba5.js');
                 console.log('SW registered');
 
             } catch (error) {

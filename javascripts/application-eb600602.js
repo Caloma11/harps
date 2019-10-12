@@ -13222,7 +13222,6 @@ window.onload = init;
       [0, 3, 4, 5].forEach((index) => {
         blowBendReedNotes[index].classList.toggle("invisible");
       })
-      window.obstatus ? window.obstatus = false : window.obstatus = true
     }
 
     // Allows overdraws to be displayed
@@ -13232,7 +13231,6 @@ window.onload = init;
       [6, 8, 9].forEach((index) => {
         halfStepDrawBendNotes[index].classList.toggle("invisible");
       })
-      window.odstatus ? window.odstatus = false : window.odstatus = true
     }
 
     // Binds the switches with their correspondent functions

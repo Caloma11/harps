@@ -1,10 +1,9 @@
 const staticAssets = [
-    'index.html',
-    'stylesheets/application-b586b293.css',
-    'javascripts/application-0963bb00.js',
+    '/',
+    'stylesheets/application-b6fa190d.css',
+    'javascripts/application-eb600602.js',
     'images/play-7ebf12ad.png',
-    'images/manifest-icon.png',
-    'images/logo.pmg',
+    'images/logo-0a9eb3e7.png',
     'images/settings-48da6b03.svg'
 ];
 
