@@ -31,12 +31,11 @@
     <%= favicon_tag 'images/favicon.png' %>
     <title>Harp Reference - Note layouts, positions, and song keys.</title>
     <meta name="description" content="A tool for referencing diatonic harmonica layouts, positions, and song keys."/>
-
     <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application" %>
   </head>
   <body>
     <%= yield %>
+    <%= javascript_include_tag "application" %>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
