@@ -103,10 +103,36 @@ label {
   margin: 0;
 }
 
+.ob-caption {
+  position: absolute;
+  right: 10px;
+  color: rgba(0, 0, 0, 0.54);
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li::before {
+  font-size: 64px;
+  content: ".";
+  color: #E5DC32;
+  font-weight: bold;
+  line-height: 0;
+}
+
+#od-caption::before {
+  color: #DBD56E; /* Change the color */
+}
 // Media Queries
 
 @media screen and (max-width: 900px) {
   .caption {
+    display: none;
+  }
+  .ob-caption {
     display: none;
   }
 }
