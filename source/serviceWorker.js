@@ -1,7 +1,7 @@
 const staticAssets = [
     '/',
     'stylesheets/application.css',
-    'javascripts/application.js',
+    'javascripts/application.js.es6',
     'images/play.png',
     'images/logo.png',
     'images/settings.svg'
