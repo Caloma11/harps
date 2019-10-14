@@ -2,7 +2,11 @@ activate :autoprefixer do |prefix|
   prefix.browsers = "last 2 versions"
 end
 
-activate :sprockets
+require 'sprockets/es6'
+activate :sprockets do |s|
+  s.supported_output_extensions << '.es6'
+end
+
 
 page '/*.xml', layout: false
 page '/*.json', layout: false
@@ -14,7 +18,6 @@ configure :build do
 
   # Append hashes to compiled assets
   activate :minify_css
-  # activate :minify_javascript
   activate :asset_hash
   activate :relative_assets
   set :relative_links, true
