@@ -87,6 +87,24 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
       "B": "C"
     };
 
+    const equivalences = {
+      "sharps": {
+                 "C#": "Db",
+                 "D#": "Eb",
+                 "F#": "Gb",
+                 "G#": "Ab",
+                 "A#": "Bb"
+                },
+      "flats": {
+                "Db":"C#",
+                "Eb":"D#",
+                "Gb":"F#",
+                "Ab":"G#",
+                "Bb":"A#"
+               }
+    }
+
+
 
 	 	checkIfNoteMajor = function (interval) {
 		  return (interval == '') ? interval : majorScale[interval - 1];
@@ -147,6 +165,26 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
     fillOverblows(harmonicaArray)
     fillOverdraws(harmonicaArray)
 
+    // Changes the harmonica for sharps and flats if allowed
+
+    const filterHarmonica = (harmonicaArray, option) => {
+      const changeEquivalence = (item, option) => {
+          if (item in equivalences[option]) {
+            return equivalences[option][item];
+          }
+          return item;
+      };
+     const filteredHarmonica = harmonicaArray.map( function (arr) {
+        return arr.map(function(note) { return changeEquivalence(note, option) });
+      });
+     return filteredHarmonica
+    }
+
+    if (window.sharps) {
+      return filterHarmonica(harmonicaArray, "flats");
+    } else if (window.flats) {
+      return filterHarmonica(harmonicaArray, "sharps");
+    }
 
     return harmonicaArray
 		}
@@ -208,6 +246,10 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
 window.onload = init;
 
   function init(){
+
+    // Sets the global variable for default notes layout
+
+    window.default = true;
 
     // Selected option for key of harmonica to be displayed on the main container
 
@@ -305,7 +347,7 @@ window.onload = init;
       })
     }
 
-    // Binds the switches with their correspondent functions
+    // Binds the overbends switches to their correspondent functions
 
     overblowsSwitch = document.getElementById("overblows-switch");
     overdrawsSwitch = document.getElementById("overdraws-switch");
@@ -318,7 +360,45 @@ window.onload = init;
       toggleOverdraws();
     });
 
+    // Binds the sharps and flats switches to change global variable, making sure
+    // they switch off one another
+
+    defaultSwitch = document.getElementById("default-switch");
+    sharpsSwitch = document.getElementById("sharps-switch");
+    flatsSwitch = document.getElementById("flats-switch");
+
+    sharpsSwitch.addEventListener('change', (event) => {
+      window.sharps = window.sharps ? false : true
+      if (window.sharps) {
+        window.default = false;
+        defaultSwitch.checked = false;
+        flatsSwitch.checked = false;
+        window.flats = false;
+      };
+    });
+
+    flatsSwitch.addEventListener('change', (event) => {
+      window.flats = window.flats ? false : true
+      if (window.flats) {
+        window.default = false;
+        defaultSwitch.checked = false;
+        sharpsSwitch.checked = false;
+        window.sharps = false;
+      };
+    });
+
+    defaultSwitch.addEventListener('change', (event) => {
+      window.default = window.default ? false : true
+      if (window.default) {
+        sharpsSwitch.checked = false;
+        window.sharps = false;
+        flatsSwitch.checked = false;
+        window.flats = false;
+      };
+    });
+
   }
 
 })(window, document, undefined);
+
 
