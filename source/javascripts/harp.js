@@ -68,9 +68,9 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
 
 
  	function harmonicaDrawer(key) {
- 		let majorScale = scaleNotes(key, scalesIntervals['majorScale'])
+ 		let majorScale = scaleNotes(key, scalesIntervals['majorScale']);
 
- 		let keyChromaticScale = reorder(chromaticScale, key)
+ 		let keyChromaticScale = reorder(chromaticScale, key);
 
     const oneHalfStepUp = {
       "C": "C#",
@@ -86,6 +86,23 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
       "Bb": "B",
       "B": "C"
     };
+
+    const equivalences = {
+      "sharps": {
+                 "C#": "Db",
+                 "D#": "Eb",
+                 "F#": "Gb",
+                 "G#": "Ab",
+                 "A#": "Bb"
+                },
+      "flats": {
+                "Db":"C#",
+                "Eb":"D#",
+                "Gb":"F#",
+                "Ab":"G#",
+                "Bb":"A#"
+               }
+    }
 
 
 	 	checkIfNoteMajor = function (interval) {
@@ -123,9 +140,6 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
 	  let harmonicaArray = [wBendBlowIntervals, bendBlowIntervals, blowNotesIntervals, drawNotesIntervals,
   	bendDrawIntervals, wBendDrawIntervals, whBendDrawIntervals]
 
-
-
-
     // Puts the overblow notes on their correspondent spots
 
     const fillOverblows = (harmonicaArray) => {
@@ -147,6 +161,26 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
     fillOverblows(harmonicaArray)
     fillOverdraws(harmonicaArray)
 
+    // Changes the harmonica for sharps and flats if allowed
+
+    const filterHarmonica = (harmonicaArray, option) => {
+      const changeEquivalence = (item, option) => {
+          if (item in equivalences[option]) {
+            return equivalences[option][item];
+          }
+          return item;
+      };
+     const filteredHarmonica = harmonicaArray.map( function (arr) {
+        return arr.map(function(note) { return changeEquivalence(note, option) });
+      });
+     return filteredHarmonica
+    }
+
+    if (window.sharps) {
+      return filterHarmonica(harmonicaArray, "flats");
+    } else if (window.flats) {
+      return filterHarmonica(harmonicaArray, "sharps");
+    }
 
     return harmonicaArray
 		}
@@ -208,6 +242,10 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
 window.onload = init;
 
   function init(){
+
+    // Sets the global variable for default notes layout
+
+    window.default = true;
 
     // Selected option for key of harmonica to be displayed on the main container
 
@@ -305,7 +343,7 @@ window.onload = init;
       })
     }
 
-    // Binds the switches with their correspondent functions
+    // Binds the overbends switches to their correspondent functions
 
     overblowsSwitch = document.getElementById("overblows-switch");
     overdrawsSwitch = document.getElementById("overdraws-switch");
@@ -318,7 +356,38 @@ window.onload = init;
       toggleOverdraws();
     });
 
+    // Binds the sharps and flats switches to change global variable, making sure
+    // they switch off one another
+
+    defaultRadio = document.getElementById("defaultRadio");
+    sharpsRadio = document.getElementById("sharpsRadio");
+    flatsRadio = document.getElementById("flatsRadio");
+
+    sharpsRadio.addEventListener('change', (event) => {
+      window.sharps = true;
+      window.default = false;
+      window.flats = false;
+      fillHarp();
+    });
+
+    flatsRadio.addEventListener('change', (event) => {
+      window.flats = true
+      window.sharps = false;
+      window.default = false;
+      fillHarp();
+    });
+
+    defaultRadio.addEventListener('change', (event) => {
+      window.default = true
+      window.sharps = false;
+      window.flats = false;
+      fillHarp();
+    });
+
   }
 
 })(window, document, undefined);
+
+
+// A lot of refacto to do regarding subst // equivalences // createSharps //
 
