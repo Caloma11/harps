@@ -68,9 +68,9 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
 
 
  	function harmonicaDrawer(key) {
- 		let majorScale = scaleNotes(key, scalesIntervals['majorScale'])
+ 		let majorScale = scaleNotes(key, scalesIntervals['majorScale']);
 
- 		let keyChromaticScale = reorder(chromaticScale, key)
+ 		let keyChromaticScale = reorder(chromaticScale, key);
 
     const oneHalfStepUp = {
       "C": "C#",
@@ -103,7 +103,6 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
                 "Bb":"A#"
                }
     }
-
 
 
 	 	checkIfNoteMajor = function (interval) {
@@ -140,9 +139,6 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
 
 	  let harmonicaArray = [wBendBlowIntervals, bendBlowIntervals, blowNotesIntervals, drawNotesIntervals,
   	bendDrawIntervals, wBendDrawIntervals, whBendDrawIntervals]
-
-
-
 
     // Puts the overblow notes on their correspondent spots
 
@@ -363,42 +359,35 @@ window.onload = init;
     // Binds the sharps and flats switches to change global variable, making sure
     // they switch off one another
 
-    defaultSwitch = document.getElementById("default-switch");
-    sharpsSwitch = document.getElementById("sharps-switch");
-    flatsSwitch = document.getElementById("flats-switch");
+    defaultRadio = document.getElementById("defaultRadio");
+    sharpsRadio = document.getElementById("sharpsRadio");
+    flatsRadio = document.getElementById("flatsRadio");
 
-    sharpsSwitch.addEventListener('change', (event) => {
-      window.sharps = window.sharps ? false : true
-      if (window.sharps) {
-        window.default = false;
-        defaultSwitch.checked = false;
-        flatsSwitch.checked = false;
-        window.flats = false;
-      };
+    sharpsRadio.addEventListener('change', (event) => {
+      window.sharps = true;
+      window.default = false;
+      window.flats = false;
+      fillHarp();
     });
 
-    flatsSwitch.addEventListener('change', (event) => {
-      window.flats = window.flats ? false : true
-      if (window.flats) {
-        window.default = false;
-        defaultSwitch.checked = false;
-        sharpsSwitch.checked = false;
-        window.sharps = false;
-      };
+    flatsRadio.addEventListener('change', (event) => {
+      window.flats = true
+      window.sharps = false;
+      window.default = false;
+      fillHarp();
     });
 
-    defaultSwitch.addEventListener('change', (event) => {
-      window.default = window.default ? false : true
-      if (window.default) {
-        sharpsSwitch.checked = false;
-        window.sharps = false;
-        flatsSwitch.checked = false;
-        window.flats = false;
-      };
+    defaultRadio.addEventListener('change', (event) => {
+      window.default = true
+      window.sharps = false;
+      window.flats = false;
+      fillHarp();
     });
 
   }
 
 })(window, document, undefined);
 
+
+// A lot of refacto to do regarding subst // equivalences // createSharps //
 
