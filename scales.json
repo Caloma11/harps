@@ -1,0 +1,20 @@
+{
+  "scalesIntervals": {
+  "majorScale": [2, 2, 1, 2, 2, 2, 1],
+  "naturalMinorScale": [2, 1, 2, 2, 1, 2, 2],
+  "minorPentatonicScale": [2, 2, 3, 2, 3],
+  "bluesScale": [3, 2, 1, 1, 3, 2],
+  "harmonicMinorScale": [2, 1, 2, 2, 1, 3, 2],
+  "melodicMinorScale": [2, 1, 2, 2, 2, 2, 1],
+  "ionianScale": [2, 2, 1, 2, 2, 2, 1],
+  "dorianScale":[2, 1, 2, 2, 2, 1, 2],
+  "phrygianScale": [1, 2, 2, 2, 1, 2, 2],
+  "lydianScale": [2, 2, 2, 1, 2, 2, 1],
+  "mixolydianScale": [2, 2, 1, 2, 2, 1, 2],
+  "aeolianScale": [2, 1, 2, 2, 1, 2, 2],
+  "locrianScale": [1, 2, 2, 1, 2, 2, 2],
+  "wholeToneScale": [2, 2, 2, 2, 2, 2],
+  "wholeToneDiminished": [2, 1, 2, 1, 2, 1, 2, 1],
+  "wholeHalfDiminished": [1, 2, 1, 2, 1, 2, 1, 2]
+  }
+}
