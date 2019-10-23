@@ -1,95 +1,107 @@
 const scalesIntervals = { majorScale: [2, 2, 1, 2, 2, 2, 1] };
 
-const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
-  , ['', '', '', '', '', '', '', 3, 6, 11]
-  , [1, 3, 5, 1, 3, 5, 1, 3, 5, 1]
-  , [2, 5, 7, 2, 4, 6, 7, 2, 4, 6]
-  , [1, 6, 10, 1, '', 8, '', '', '', '']
-  , ['', 5, 9, '', '', '', '', '', '', '']
-  , ['', '', 8, '', '', '', '', '', '', '']
-  ];
+const harpGrid =  [
+                    ['', '', '', '', '', '', '', '', '', 10 ],
+                    ['', '', '', '', '', '', '', 3, 6, 11],
+                    [1, 3, 5, 1, 3, 5, 1, 3, 5, 1],
+                    [2, 5, 7, 2, 4, 6, 7, 2, 4, 6],
+                    [1, 6, 10, 1, '', 8, '', '', '', ''],
+                    ['', 5, 9, '', '', '', '', '', '', ''],
+                    ['', '', 8, '', '', '', '', '', '', '']
+                  ];
 
- const chromaticScale = ['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B'];
 
-  // Reorders a given scale so that it starts with a given note
+const chromaticScale = ['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B'];
 
- function reorder(scale, note) {
- 		let array = JSON.parse(JSON.stringify(scale));
- 		while (array[0] != note) {
- 			array = array.splice(-1).concat(array);
-		}
-		return array
- }
+// Reorders a given scale so that it starts with a given note
 
+function reorder(scale, note) {
+		let array = JSON.parse(JSON.stringify(scale));
+		while (array[0] != note) {
+			array = array.splice(-1).concat(array);
+	}
+	return array
+}
 
   // Returns any scale in any given key, given that key and the intervals, which
   // are available in the   constant
 
- 	function scaleNotes(note, intervals) {
- 		let i = 0
- 		const scale = reorder(chromaticScale, note);
- 		const notes = [scale[0]];
+function scaleNotes(note, intervals) {
+	let i = 0
+	const scale = reorder(chromaticScale, note);
+	const notes = [scale[0]];
 
- 		intervals.forEach((interval) => {
-  		i += interval;
-  		notes.push(scale[i]);
-		});
-		// notes.splice(-1, 1)
-		notes.push(scale[0]);
-		return notes
- 	}
+	intervals.forEach((interval) => {
+	  i += interval;
+	  notes.push(scale[i]);
+  });
+  notes.push(scale[0]);
+  return notes
+}
 
+const equivalences = {
+                      "sharps": {
+                                 "C#": "Db",
+                                 "D#": "Eb",
+                                 "F#": "Gb",
+                                 "G#": "Ab",
+                                 "A#": "Bb"
+                                },
+                      "flats": {
+                                "Db":"C#",
+                                "Eb":"D#",
+                                "Gb":"F#",
+                                "Ab":"G#",
+                                "Bb":"A#"
+                               }
+                    };
 
-  const equivalences = {
-    "sharps": {
-               "C#": "Db",
-               "D#": "Eb",
-               "F#": "Gb",
-               "G#": "Ab",
-               "A#": "Bb"
-              },
-    "flats": {
-              "Db":"C#",
-              "Eb":"D#",
-              "Gb":"F#",
-              "Ab":"G#",
-              "Bb":"A#"
-             }
-  };
-
-  createSharps = function (note) {
-    if (note == "Db" || note =="Gb") {
-      return equivalences["flats"][note];
-    }
-      return note;
+createSharps = function (note) {
+  if (note == "Db" || note =="Gb") {
+    return equivalences["flats"][note];
   }
+    return note;
+}
 
+const majorNotes = {
+                    'G': ['Db'],
+                    'D': ['Db', 'Gb'],
+                    'A': ['Db', 'Gb', 'Ab'],
+                    'E': ['Db', 'Gb', 'Ab', 'Eb'],
+                    'B': ['Db', 'Gb', 'Ab', 'Eb', 'Bb'],
+                    'Gb': ['Db', 'Gb', 'Ab', 'Eb', 'Bb'],
+                    'Db': ['Db', 'Gb', 'Ab', 'Eb', 'Bb']
+                  }
+
+const oneHalfStepUp = {
+                        "C": "C#",
+                        "C#": "D",
+                        "Db": "D",
+                        "D": "Eb",
+                        "D#": "E",
+                        "Eb": "E",
+                        "E": "F",
+                        "F": "F#",
+                        "F#": "G",
+                        "Gb": "G",
+                        "G": "Ab",
+                        "G#": "A",
+                        "Ab": "A",
+                        "A": "Bb",
+                        "A#": "B",
+                        "Bb": "B",
+                        "B": "C"
+                      };
 
  	// Returns an array, in which every element is
  	// an array representing the notes in a 'row' of the harmonica,
  	// starting from the 'wholestep blow bend row' and going to the 'three halfsteps
  	// draw bend row'
 
-
  	function harmonicaDrawer(key) {
  		const majorScale = scaleNotes(key, scalesIntervals['majorScale']);
 
  		const keyChromaticScale = reorder(chromaticScale, key);
-
-    const oneHalfStepUp = {
-      "C": "C#",
-      "C#": "D",
-      "D": "Eb",
-      "Eb": "E",
-      "E": "F",
-      "F": "F#",
-      "F#": "G",
-      "G": "Ab",
-      "Ab": "A",
-      "A": "Bb",
-      "Bb": "B",
-      "B": "C"
-    };
 
 	 	checkIfNoteMajor = function (interval) {
 		  return (interval == '') ? interval : majorScale[interval - 1];
@@ -98,20 +110,19 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
 		  return (interval == '') ? interval : keyChromaticScale[interval];
 		}
 
- 		const wBendBlowIntervals = harpGrid[0].map(checkIfNoteChrom).map(createSharps);
+ 		const wBendBlowIntervals = harpGrid[0].map(checkIfNoteChrom);
 
- 		const bendBlowIntervals =  harpGrid[1].map(checkIfNoteChrom).map(createSharps);
+ 		const bendBlowIntervals =  harpGrid[1].map(checkIfNoteChrom);
 
-	  const blowNotesIntervals = harpGrid[2].map(checkIfNoteMajor).map(createSharps);
+	  const blowNotesIntervals = harpGrid[2].map(checkIfNoteMajor);
 
-	 	const drawNotesIntervals = harpGrid[3].map(checkIfNoteMajor).map(createSharps);
+	 	const drawNotesIntervals = harpGrid[3].map(checkIfNoteMajor);
 
-	  const bendDrawIntervals =  harpGrid[4].map(checkIfNoteChrom).map(createSharps);
+	  const bendDrawIntervals =  harpGrid[4].map(checkIfNoteChrom);
 
-	  const wBendDrawIntervals =  harpGrid[5].map(checkIfNoteChrom).map(createSharps);
+	  const wBendDrawIntervals =  harpGrid[5].map(checkIfNoteChrom);
 
-	  const whBendDrawIntervals =  harpGrid[6].map(checkIfNoteChrom).map(createSharps);
-
+	  const whBendDrawIntervals =  harpGrid[6].map(checkIfNoteChrom);
 
 	  const harmonicaArray = [wBendBlowIntervals, bendBlowIntervals, blowNotesIntervals, drawNotesIntervals,
   	bendDrawIntervals, wBendDrawIntervals, whBendDrawIntervals];
@@ -158,8 +169,24 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
       return filterHarmonica(harmonicaArray, "sharps");
     }
 
-    return harmonicaArray
-		}
+    // Substitutes the flats for the corresponding sharp notes on the key major scale
+
+    const sharpAccordingly = (item) => {
+      if (majorNotes[key] && majorNotes[key].includes(item)) {
+        return equivalences['flats'][item]
+      }
+     return item;
+    }
+
+    const majorLayout = (harmonicaArray) => {
+      filteredHarmonica = harmonicaArray.map((row) => {
+        return row.map((note) => { return sharpAccordingly(note) })
+      })
+      return filteredHarmonica
+    };
+
+    return majorLayout(harmonicaArray)
+	}
 
     // Finds the harmonica key for a given song key and a given harmonica "position"
 
@@ -202,9 +229,7 @@ const harpGrid =  [ ['', '', '', '', '', '', '', '', '', 10 ]
       return `${fancyNames[scale.indexOf(songKey) + 1]} position`
     }
 
-
 // -------------- HTML related content -----------------------
-
 
 (function(window, document, undefined){
 
