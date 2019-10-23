@@ -220,26 +220,23 @@ window.onload = init;
 
     const selectKey = document.getElementById('key');
 
-    // Button, selected harmonica key, selected song key and Paragraph to hold the result,
+    // Selected harmonica key, selected song key and Paragraph to hold the result,
     // for finding a position
 
-    const posButton = document.getElementById('pos-button');
     const posHarp = document.getElementById('pos-harp-key');
     const posSong = document.getElementById('pos-song-key');
     const posResult = document.getElementById('pos-result');
 
-    // Button,selected song key, position and Paragraph to hold the result,
+    // Selected song key, position and Paragraph to hold the result,
     // for finding a harmonica key
 
-    const harpButton = document.getElementById('harp-button');
     const harpSong = document.getElementById('harp-song-key');
     const harpPos = document.getElementById('harp-pos');
     const harpResult = document.getElementById('harp-result')
 
-    // Button, selected harmonica key, position and Paragraph to hold the result,
+    // Selected harmonica key, position and Paragraph to hold the result,
     // for finding a song key
 
-    const songButton = document.getElementById('song-button');
     const songHarp = document.getElementById('song-harp-key');
     const songPos = document.getElementById('song-pos');
     const songResult = document.getElementById('song-result');
@@ -262,35 +259,44 @@ window.onload = init;
 
   }
 
-    // Binds the button to draw the harmonica
+    // Binds the selector to draw the harmonica
 
     selectKey.addEventListener('change', (event) => {
       fillHarp();
     }, {capture: true, passive: true});
 
-    // Binds the button to find the position
+    // Binds the selectors to find the position
 
-    posButton.addEventListener('click', (event) => {
-      let songKey = posSong.value;
-      let harpKey = posHarp.value;
-      posResult.innerText = findPosition(songKey, harpKey);
+    [posSong, posHarp].forEach((selector) => {
+      selector.addEventListener('change', (event) => {
+        let songKey = posSong.value;
+        let harpKey = posHarp.value;
+        posResult.innerText = findPosition(songKey, harpKey);
+      });
     });
 
-    // Binds the button to find the harmonica key
+    // Binds the selectors to find the harmonica key
 
-    harpButton.addEventListener('click', (event) => {
-      let songKey = harpSong.value;
-      let position = harpPos.value;
-      harpResult.innerText = findHarpKey(songKey, position);
+    [harpSong, harpPos].forEach((selector) => {
+      selector.addEventListener('change', (event) => {
+        let songKey = harpSong.value;
+        let position = harpPos.value;
+        harpResult.innerText = findHarpKey(songKey, position);
+      });
     });
 
-    // Binds the button to find the song key
 
-    songButton.addEventListener('click', (event) => {
-      let harpKey = songHarp.value;
-      let position = songPos.value;
-      songResult.innerText = findSongKey(harpKey, position);
+    // Binds the selectors to find the song key
+
+    [songPos, songHarp].forEach((selector) => {
+      selector.addEventListener('change', (event) => {
+        let harpKey = songHarp.value;
+        let position = songPos.value;
+        songResult.innerText = findSongKey(harpKey, position);
+      });
     });
+
+
 
     // ------- Overbends -------
 
