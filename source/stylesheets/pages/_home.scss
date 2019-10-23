@@ -16,11 +16,6 @@ html {
   box-shadow: none;
 }
 
-#pos-button, #song-button, #harp-button {
-  margin-bottom: 15px;
-}
-
-
 .options-container {
   display: flex;
   justify-content: space-around;
@@ -58,20 +53,10 @@ label {
   margin: auto;
 }
 
-.button {
-  max-width: 32px;
-  max-height: 32px;
-  &:active {
-    transform: translate(1px, -1px);
-  }
-  &:hover {
-    cursor: pointer;
-    opacity: 0.8;
-  }
-}
-
 .result {
+  margin-top: 15px;
   font-weight: bold;
+  font-size: 1.1rem;
 }
 
 .settings {
