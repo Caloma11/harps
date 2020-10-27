@@ -1,5 +1,6 @@
+#gems
 source 'https://rubygems.org'
-gem 'middleman', '= 4.2'
+gem 'middleman', '4.3.11'
 gem 'middleman-autoprefixer', '~> 2.7'
 gem 'middleman-sprockets', '4.0.0.rc.3'
 gem 'middleman-deploy', git: 'https://github.com/lewagon/middleman-deploy.git'
@@ -11,4 +12,4 @@ gem 'rack-contrib'
 gem 'font-awesome-sass'
 gem 'bootstrap-sass'
 gem 'jquery-middleman'
-gem "kramdown", ">= 2.3.0"
+gem "kramdown"
