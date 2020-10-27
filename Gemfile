@@ -11,4 +11,4 @@ gem 'rack-contrib'
 gem 'font-awesome-sass'
 gem 'bootstrap-sass'
 gem 'jquery-middleman'
-gem "kramdown", ">= 2.3.0"
+gem "kramdown"
